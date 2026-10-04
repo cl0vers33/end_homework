@@ -1,0 +1,30 @@
+{
+  "courtsByArea": [
+    { "area": "天水路球场区", "campus": "呈贡校区", "count": 10 },
+    { "area": "呈贡体育馆", "campus": "呈贡校区", "count": 7 },
+    { "area": "风雨操场", "campus": "呈贡校区", "count": 3 },
+    { "area": "楸苑公寓", "campus": "呈贡校区", "count": 2 },
+    { "area": "银杏道球场区", "campus": "东陆校区", "count": 4 },
+    { "area": "东陆体育馆", "campus": "东陆校区", "count": 2 },
+    { "area": "东陆风雨操场", "campus": "东陆校区", "count": 3 },
+    { "area": "会泽院球场区", "campus": "东陆校区", "count": 2 },
+    { "area": "梓苑公寓", "campus": "东陆校区", "count": 1 },
+    { "area": "映秋院球场", "campus": "东陆校区", "count": 1 }
+  ],
+  "weeklyVisitors": [
+    { "day": "09-28", "visitors": 860 },
+    { "day": "09-29", "visitors": 910 },
+    { "day": "09-30", "visitors": 1045 },
+    { "day": "10-01", "visitors": 1520 },
+    { "day": "10-02", "visitors": 1680 },
+    { "day": "10-03", "visitors": 1390 },
+    { "day": "10-04", "visitors": 1120 }
+  ],
+  "usageByPeriod": [
+    { "period": "06:00-08:00 晨练", "count": 320 },
+    { "period": "12:00-14:00 午间", "count": 540 },
+    { "period": "14:00-17:00 下午", "count": 980 },
+    { "period": "17:00-19:00 傍晚", "count": 1560 },
+    { "period": "19:00-22:00 夜场", "count": 2130 }
+  ]
+}
