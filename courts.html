@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>云大排球场信息中心 - 场地查询</title>
+  <link rel="stylesheet" href="libs/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- ============ 导航栏 ============ -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">🏐 云大排球场信息中心</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="切换导航">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">首页</a></li>
+          <li class="nav-item"><a class="nav-link active" href="courts.html">场地查询</a></li>
+          <li class="nav-item"><a class="nav-link" href="stats.html">数据统计</a></li>
+          <li class="nav-item"><a class="nav-link" href="3d.html">三维导览</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ 主体：查询表单 + 结果列表 ============ -->
+  <main class="container my-4">
+    <h1 class="h3 mb-3">🔍 排球场查询</h1>
+
+    <!-- 数据加载失败提示 -->
+    <div id="courts-error" class="alert alert-danger error-alert" role="alert"></div>
+
+    <!-- 查询表单（交互模块：搜索 + 筛选 + 排序） -->
+    <section aria-label="查询条件" class="card mb-4">
+      <div class="card-body">
+        <form id="query-form" class="row g-2" novalidate>
+          <!-- 关键词搜索：仅允许中文、字母、数字，防止非法字符 -->
+          <div class="col-12 col-md-4">
+            <label for="kw" class="form-label small mb-1">关键词</label>
+            <input type="text" id="kw" class="form-control" maxlength="20"
+                   placeholder="如：体育馆 / 夜灯 / 塑胶">
+            <div class="invalid-feedback">关键词只能包含中文、字母、数字，且不超过20字</div>
+          </div>
+          <!-- 校区筛选 -->
+          <div class="col-6 col-md-3">
+            <label for="campus" class="form-label small mb-1">校区</label>
+            <select id="campus" class="form-select">
+              <option value="">全部校区</option>
+              <option value="东陆校区">东陆校区</option>
+              <option value="呈贡校区">呈贡校区</option>
+            </select>
+          </div>
+          <!-- 场地类型筛选 -->
+          <div class="col-6 col-md-2">
+            <label for="type" class="form-label small mb-1">场地类型</label>
+            <select id="type" class="form-select">
+              <option value="">不限</option>
+              <option value="室内">室内</option>
+              <option value="半室内">半室内</option>
+              <option value="室外">室外</option>
+            </select>
+          </div>
+          <!-- 开放状态筛选 -->
+          <div class="col-6 col-md-2">
+            <label for="opennow" class="form-label small mb-1">开放状态</label>
+            <select id="opennow" class="form-select">
+              <option value="">不限</option>
+              <option value="yes">仅看当前开放</option>
+            </select>
+          </div>
+          <!-- 排序 -->
+          <div class="col-6 col-md-1">
+            <label for="sort" class="form-label small mb-1">排序</label>
+            <select id="sort" class="form-select">
+              <option value="free">空闲多→少</option>
+              <option value="count">片数多→少</option>
+              <option value="name">名称 A→Z</option>
+            </select>
+          </div>
+          <div class="col-6 col-md-12 d-flex align-items-end gap-2">
+            <button type="submit" class="btn btn-dark">查询</button>
+            <button type="reset" id="reset-btn" class="btn btn-outline-secondary">重置</button>
+            <span class="ms-auto text-muted small align-self-center">共 <strong id="result-count">0</strong> 条结果</span>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 结果列表 -->
+    <section aria-label="查询结果">
+      <div class="row g-3" id="court-list"></div>
+      <!-- 查询结果为空的提示 -->
+      <div id="empty-tip" class="empty-tip" style="display:none">
+        <p class="h5">😕 没有符合条件的排球场</p>
+        <p class="small">请尝试减少筛选条件，或清空关键词后重新查询。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="mb-0">云南大学信息学院 · 软件开发综合实践期末大作业 · 校园公共信息与数据展示中心</p>
+    </div>
+  </footer>
+
+  <script src="libs/js/jquery.min.js"></script>
+  <script src="libs/js/bootstrap.bundle.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/courts.js"></script>
+</body>
+</html>
