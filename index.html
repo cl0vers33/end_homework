@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <!-- 响应式适配手机的关键 meta 标签 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>云大排球场信息中心 - 首页</title>
+  <link rel="stylesheet" href="libs/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- ============ 导航栏（语义化：nav） ============ -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">🏐 云大排球场信息中心</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="切换导航">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">首页</a></li>
+          <li class="nav-item"><a class="nav-link" href="courts.html">场地查询</a></li>
+          <li class="nav-item"><a class="nav-link" href="stats.html">数据统计</a></li>
+          <li class="nav-item"><a class="nav-link" href="3d.html">三维导览</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ 首页大标题区（语义化：header） ============ -->
+  <header class="hero">
+    <div class="container">
+      <h1>云大排球场信息中心</h1>
+      <p class="lead mt-3">一个页面看清全校排球场：哪片空着、几点开灯、哪里有夜场</p>
+      <a href="courts.html" class="btn btn-warning btn-lg mt-2">立即查询空场 →</a>
+    </div>
+  </header>
+
+  <!-- ============ 主体内容（语义化：main） ============ -->
+  <main class="container my-5">
+
+    <!-- 数据加载失败提示（错误提示之一） -->
+    <div id="index-error" class="alert alert-danger error-alert" role="alert"></div>
+
+    <!-- 公告栏 -->
+    <section aria-labelledby="ann-title" class="mb-5">
+      <h2 id="ann-title" class="h4 mb-3">📢 最新公告</h2>
+      <div class="card"><div class="card-body" id="announcement-list">
+        <div class="empty-tip">公告加载中…</div>
+      </div></div>
+    </section>
+
+    <!-- 排球场概览卡片（只显示有空场的场地，最多6个） -->
+    <section aria-labelledby="overview-title">
+      <h2 id="overview-title" class="h4 mb-3">🏐 今日球场概览</h2>
+      <p class="text-muted small">数据更新时间：<span id="update-time">加载中…</span>（数据来自 data/courts.json）</p>
+      <div class="row g-3" id="overview-cards"></div>
+    </section>
+
+    <!-- 功能入口 -->
+    <section aria-labelledby="entry-title" class="mt-5">
+      <h2 id="entry-title" class="h4 mb-3">🚪 功能入口</h2>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="card h-100"><div class="card-body">
+            <h3 class="h5">🔍 场地查询</h3>
+            <p class="text-muted">按关键词、校区、开放状态筛选全校排球场，支持按空闲片数排序。</p>
+            <a href="courts.html" class="btn btn-outline-dark btn-sm">进入查询</a>
+          </div></div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100"><div class="card-body">
+            <h3 class="h5">📊 数据统计</h3>
+            <p class="text-muted">柱状图、折线图、饼图三类图表，展示各区域场地数量与客流分布。</p>
+            <a href="stats.html" class="btn btn-outline-dark btn-sm">查看统计</a>
+          </div></div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100"><div class="card-body">
+            <h3 class="h5">🏛 三维导览</h3>
+            <p class="text-muted">Three.js 三维展示标准排球场布局，可旋转、缩放、切换昼夜与点击场地。</p>
+            <a href="3d.html" class="btn btn-outline-dark btn-sm">进入导览</a>
+          </div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 页脚（语义化：footer） ============ -->
+  <footer>
+    <div class="container">
+      <p class="mb-0">云南大学信息学院 · 软件开发综合实践期末大作业 · 校园公共信息与数据展示中心</p>
+      <p class="mb-0 small">数据为课程演示用模拟数据，开放安排以体育部最新公告为准</p>
+    </div>
+  </footer>
+
+  <script src="libs/js/jquery.min.js"></script>
+  <script src="libs/js/bootstrap.bundle.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
