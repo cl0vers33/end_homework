@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>云大排球场信息中心 - 三维导览</title>
+  <link rel="stylesheet" href="libs/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- ============ 导航栏 ============ -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">🏐 云大排球场信息中心</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="切换导航">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">首页</a></li>
+          <li class="nav-item"><a class="nav-link" href="courts.html">场地查询</a></li>
+          <li class="nav-item"><a class="nav-link" href="stats.html">数据统计</a></li>
+          <li class="nav-item"><a class="nav-link active" href="3d.html">三维导览</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ 主体：Three.js 排球场场景 ============ -->
+  <main class="container my-4">
+    <h1 class="h3 mb-1">🏛 排球场三维导览</h1>
+    <p class="text-muted small mb-3">
+      按标准排球场尺寸（长18米 × 宽9米，球网高2.43米）1:1 建模。
+      鼠标左键拖动旋转、滚轮缩放、右键平移；点击场地区域查看规则说明。
+    </p>
+
+    <!-- 操作按钮（三维交互控制） -->
+    <div class="mb-2 d-flex flex-wrap gap-2">
+      <button id="btn-day" class="btn btn-outline-dark btn-sm active">☀ 白天</button>
+      <button id="btn-night" class="btn btn-outline-dark btn-sm">🌙 夜晚</button>
+      <button id="btn-top" class="btn btn-outline-dark btn-sm">俯视全场</button>
+      <button id="btn-net" class="btn btn-outline-dark btn-sm">平视球网</button>
+      <button id="btn-reset" class="btn btn-outline-dark btn-sm">重置视角</button>
+    </div>
+
+    <!-- 三维场景容器（WebGL 画布将插入此处） -->
+    <div id="scene-container">
+      <!-- 点击场地后显示的信息面板 -->
+      <div id="court-info-panel" role="status">
+        <button type="button" id="panel-close" class="btn-close btn-sm float-end" aria-label="关闭"></button>
+        <h2 class="h6 mb-1" id="panel-title">-</h2>
+        <p class="mb-0 small text-muted" id="panel-desc">-</p>
+      </div>
+    </div>
+
+    <!-- 场景说明 -->
+    <section class="card mt-3"><div class="card-body">
+      <h2 class="h5">三维展示与主题的关联</h2>
+      <p class="small mb-2 text-muted">
+        排球是一项强调空间感的运动：场地分区（前场/后场）、球网高度、灯光布置都直接影响打球体验。
+        平面列表难以传达这些信息，三维场景可以让新生在到场地之前就直观了解球场结构与规则分区。
+      </p>
+      <p class="small mb-0 text-muted">
+        支持的交互：① 鼠标拖动旋转视角 ② 滚轮缩放 ③ 右键平移 ④ 点击场地/球网/排球查看信息
+        ⑤ 昼夜切换（夜晚灯柱点亮）⑥ 预设相机机位切换。
+      </p>
+    </div></section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="mb-0">云南大学信息学院 · 软件开发综合实践期末大作业 · 校园公共信息与数据展示中心</p>
+    </div>
+  </footer>
+
+  <script src="libs/js/jquery.min.js"></script>
+  <script src="libs/js/bootstrap.bundle.min.js"></script>
+  <script src="libs/js/three.min.js"></script>
+  <script src="libs/js/OrbitControls.js"></script>
+  <script src="js/scene3d.js"></script>
+</body>
+</html>
